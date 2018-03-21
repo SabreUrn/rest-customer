@@ -12,10 +12,15 @@ namespace RestCustomerService {
 	public interface IService1 {
 
 		[OperationContract]
-		string GetData(int value);
+		[WebInvoke(Method = "GET", ResponseFormat = WebMessageFormat.Json, UriTemplate = "data/")]
+		string GetData();
 
 		[OperationContract]
-		CompositeType GetDataUsingDataContract(CompositeType composite);
+		[WebInvoke(Method = "GET", ResponseFormat = WebMessageFormat.Json, UriTemplate = "customers/")]
+		IList<Customer> GetCustomers();
+
+		//[OperationContract]
+		//CompositeType GetDataUsingDataContract(CompositeType composite);
 
 		// TODO: Add your service operations here
 	}
