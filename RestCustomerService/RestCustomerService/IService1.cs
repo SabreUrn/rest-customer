@@ -19,6 +19,22 @@ namespace RestCustomerService {
 		[WebInvoke(Method = "GET", ResponseFormat = WebMessageFormat.Json, UriTemplate = "customers/")]
 		IList<Customer> GetCustomers();
 
+		[OperationContract]
+		[WebInvoke(Method = "GET", ResponseFormat = WebMessageFormat.Json, UriTemplate = "customers?id={id}")]
+		Customer GetCustomer(int id);
+
+		[OperationContract]
+		[WebInvoke(Method = "DELETE", ResponseFormat = WebMessageFormat.Json, UriTemplate = "customers/delete?id={id}")]
+		bool DeleteCustomer(int id);
+
+		[OperationContract]
+		[WebInvoke(Method = "POST", ResponseFormat = WebMessageFormat.Json, UriTemplate = "customers/add/")]
+		bool AddCustomer(int id, string firstName, string lastName, int year);
+
+		[OperationContract]
+		[WebInvoke(Method = "PUT", ResponseFormat = WebMessageFormat.Json, UriTemplate = "customers/update/")]
+		bool UpdateCustomer(int id, string firstName, string lastName, int year);
+
 		//[OperationContract]
 		//CompositeType GetDataUsingDataContract(CompositeType composite);
 
